@@ -11,11 +11,11 @@ Given a file in json format like this:
 {
     "rules": {
         "s0": {"a": "s0", "b": "s1", "c": "s2"},
-        "s1": {"a": "s1", "b": "s1", "c": "s4"},
-        "s2": {"a": "s2", "b": "s0", "c": "s2"},
+        "s1": {"a": "s1", "b": "s1", "c": "s1"},
+        "s2": {"a": "s2", "b": "s0", "c": "s2"}
     },
-    "inputs": ["a", "b", "c", "c", "a", "b", "a", "c"],
-    "initial": "s0",
+    "inputs": ["a", "c", "b", "c", "a", "b", "a", "b", "b", "c"],
+    "initial": "s0"
 }
 ```
 
@@ -23,7 +23,7 @@ There are three states here, `s0`, `s1`, `s2` and three possible inputs,
 `a`, `b`, `c`.  The initial state is `s0`  In the first step, we look
 at the rules for the current state which is `s0`: `{"a": "s0", "b": "s1", "c": "s2"}`.
 In the first step the input is `a` so we transition to state `s0`.  Next, our
-input is still `s0` but our input is `c` so we transition to `s2`.  Next, our
+state is still `s0` but our input is `c` so we transition to `s2`.  Next, our
 state is `s2` and our input is `b` so we transition to `s0`.  This process continues
 for every input.  Here is a visualization of the process:
 
